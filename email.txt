@@ -1,0 +1,4 @@
+<li>
+    <svg><use href="#icon-mail"></use></svg>
+    <span>milan.vlaski321@gmail.com</span>
+</li>
