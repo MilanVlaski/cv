@@ -1,0 +1,274 @@
+@font-face {
+  font-family: 'Roboto';
+  src: url('Roboto-VariableFont_wdth,wght.ttf') format('ttf');
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+/* Common - Start*/
+:root,
+:host {
+
+    --color-accent: hsl(350 50 0);
+    --color-neutral: hsl(0 0 99);
+    --color-primary: hsl(170 21 25);
+    --color-neutral-text: hsl(from var(--color-primary) h s calc(l - 12));
+
+    --color-accent-inverse: hsl(0 100 100);
+    --color-primary-inverse: hsl(0 100 100);
+
+    /* Used on elements, by default */
+    --color: var(--color-accent);
+    --color-inverse: var(--color-accent-inverse);
+
+    --font-family: "Roboto", sans-serif;
+    --heading-font-family: sans-serif;
+
+    --spacing: 0.8rem;
+    font-size: 14px;
+
+    scroll-behavior: smooth;
+
+    --page-size: 1000px;
+}
+
+
+
+.primary {
+    --color: var(--color-primary);
+    --color-inverse: var(--color-primary-inverse);
+}
+
+.accent {
+    --color: var(--color-accent);
+    --color-inverse: var(--color-accent-inverse);
+}
+
+/* Reset */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--color-neutral);
+    font-family: var(--font-family);
+    font-size: 16px;
+    /* font-size: clamp(1rem, 1vw + 0.5rem, 1.4rem); */
+    color: var(--color-neutral-text);
+
+    margin: 0;
+    line-height: 1.4;
+
+    /* Push the footer to the bottom on short pages */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+svg {
+    fill: currentColor;
+}
+
+
+img,
+picture {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    color: var(--color-neutral-text);
+}
+
+/* Makes it A4 */
+body {
+    max-width: var(--page-size);
+    margin-inline: auto;
+}
+
+/* @page {
+    size: A4;
+} */
+
+/* Can be used for reponsiveness */
+.container {
+    max-width: 50em;
+    margin-inline: auto;
+    width: 100%;
+}
+
+@media (max-width: 50em) {
+    .container {
+        margin-inline: 0;
+    }
+}
+/* Common -End */
+
+h1 {
+    margin: 0;
+    font-size: 3rem;
+}
+
+header .vocation {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+header {
+    border-bottom: 0.2rem solid var(--color-neutral-text);
+}
+
+h2 {
+    border-bottom: 0.125rem solid var(--color-neutral-text);
+}
+
+body>main {
+    display: flex;
+    gap: calc(var(--spacing) * 4);
+    margin-top: var(--spacing);
+}
+
+/* Makes the aside take up the width only the width it needs, without wrapping.
+    Not meant to take up much space. Meant for lists, which are vertical.
+ */
+
+main>aside {
+    flex: 0 0 auto;
+}
+
+aside section svg {
+    --size: 1.2rem;
+    width: var(--size);
+    height: var(--size);
+    margin-inline-end: 0.3rem;
+}
+
+ul {
+    /* Same padding as aside section svg, icons*/
+    padding-inline-start: 1.5rem;
+}
+
+aside section svg,
+aside section svg+* {
+    vertical-align: middle;
+}
+
+
+h1 {
+    letter-spacing: 0.1rem;
+}
+
+h2, header p {
+    letter-spacing: 0.05rem;
+}
+
+
+
+h1,
+h2 {
+    text-transform: uppercase;
+}
+
+/* Spacing - Start */
+article section+section {
+    margin-top: var(--spacing);
+}
+header {
+    margin-top: calc(var(--spacing) * 2.5);
+}
+p,
+ul {
+    margin-block: calc(var(--spacing) / 2);
+}
+h2 {
+    margin-block: var(--spacing);
+}
+aside section+section {
+    margin-top: calc(var(--spacing) * 2);
+}
+/* Spacing - End */
+
+
+section>p:first-child {
+    display: flex;
+    align-items: center;
+}
+
+/* Time spent */
+section>p:first-child>span:first-child {
+    flex: 1;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.links ul {
+    list-style: none;
+    padding: 0;
+}
+
+
+/* Icons and flair*/
+body>main>article {
+    --icon-offset: -2.5rem;
+    --size: 1.6rem;
+    --padding: calc(var(--size) * 0.14);
+    --line-width: 0.1rem;
+}
+
+body>main>article svg {
+    width: var(--size);
+    height: var(--size);
+    background-color: var(--color-accent);
+    fill: var(--color-accent-inverse);
+
+    border-radius: 100px;
+    padding: var(--padding);
+
+    position: absolute;
+    left: var(--icon-offset);
+    top: calc(var(--padding));
+    vertical-align: middle;
+}
+
+body>main>article>section {
+    position: relative;
+}
+
+body>main>article>article::before {
+  content: "";
+  position: absolute;   /* viewport-relative, ignores parent */
+  top: var(--size);
+  left: calc(var(--icon-offset) + (var(--size) - var(--line-width)) / 2);
+  width: var(--line-width);
+  height: calc(100% - 1rem);
+  background: var(--color-accent);  /* bright color */
+}
+
+/* Briefcase icon is chunkier, and this makes it look smaller */ 
+.work-experience svg {
+    padding: 0.3rem;
+}
+
+body>main>article>article {
+    position: relative;
+}
+
+body>main>article {
+    position: relative;
+}
+
+article p:first-of-type::before {
+    --size: 0.75rem;
+    --width: 0.125rem;
+    background: black;
+    content: '';
+    width: var(--size);
+    height: var(--size);
+    border-radius: 1000px;
+    border: var(--width) solid var(--color-accent);
+    background: var(--color-accent-inverse);
+    position: absolute;
+    left: calc(var(--icon-offset) + (var(--size) + var(--width)) / 2);
+}
