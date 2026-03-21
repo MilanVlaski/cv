@@ -171,6 +171,20 @@ h2 {
     text-transform: uppercase;
 }
 
+body > header,
+body > main {
+	margin-inline: var(--spacing);
+}
+
+body > main > article {
+	max-width : 70ch;
+}
+
+body > main  {
+	flex-wrap: wrap-reverse;
+	flex-direction: row;
+}
+
 /* Spacing - Start */
 article section+section {
     margin-top: var(--spacing);
