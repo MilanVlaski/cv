@@ -126,7 +126,7 @@ h2 {
 
 body>main {
     display: flex;
-    gap: calc(var(--spacing) * 4);
+    column-gap: calc(var(--spacing) * 4);
     margin-top: var(--spacing);
 }
 
@@ -255,7 +255,7 @@ body>main>article>article::before {
   position: absolute;   /* viewport-relative, ignores parent */
   top: var(--size);
   left: calc(var(--icon-offset) + (var(--size) - var(--line-width)) / 2);
-  width: var(--line-width);
+  width: 1px;
   height: calc(100% - 1rem);
   background: var(--color-accent);  /* bright color */
 }
