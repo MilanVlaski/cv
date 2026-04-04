@@ -30,6 +30,10 @@
     scroll-behavior: smooth;
 
     --page-size: 1000px;
+
+    --border: 1px solid var(--color-neutral-text);
+    --thick-border: 2px solid var(--color-neutral-text);
+    --profile-width: 225px;
 }
 
 
@@ -117,11 +121,11 @@ header .vocation {
 }
 
 header {
-    border-bottom: 0.2rem solid var(--color-neutral-text);
+    border-bottom: var(--thick-border);
 }
 
 h2 {
-    border-bottom: 0.125rem solid var(--color-neutral-text);
+    border-bottom: var(--thick-border);
 }
 
 body>main {
@@ -135,7 +139,7 @@ body>main {
  */
 
 main>aside {
-    flex: 0 0 auto;
+    flex: 0 0 var(--profile-width);
 }
 
 aside section svg {
@@ -181,7 +185,7 @@ body > main > article {
 }
 
 body > main  {
-	flex-wrap: wrap-reverse;
+	flex-wrap: wrap;
 	flex-direction: row;
 }
 
@@ -197,10 +201,12 @@ ul {
     margin-block: calc(var(--spacing) / 2);
 }
 h2 {
-    margin-block: var(--spacing);
+    margin-block-end: var(--spacing);
+    /* bad choice of override led me to this >.< */
+    margin-top: 0;
 }
-aside section+section {
-    margin-top: calc(var(--spacing) * 2);
+aside section {
+    margin-top: calc(var(--spacing));
 }
 /* Spacing - End */
 
@@ -285,4 +291,16 @@ article p:first-of-type::before {
     background: var(--color-accent-inverse);
     position: absolute;
     left: calc(var(--icon-offset) + (var(--size) + var(--width)) / 2);
+}
+
+main > aside img {
+    max-width: var(--profile-width);
+    width: 100%;
+    display: block;
+    border: var(--thick-border);
+}
+
+main > article h3{
+    border-bottom: var(--thick-border);
+    margin-block: var(--spacing);
 }
